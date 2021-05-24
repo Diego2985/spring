@@ -35,11 +35,11 @@ public class ControladorRegistrarmeTest {
     }
 
     private void whenRegistroElUsuario(String email, String password, String repitePassword) {
-       DatosRegistro datosRegistro = new DatosRegistro();
-       datosRegistro.setEmail(email);
-       datosRegistro.setPassword(password);
-       datosRegistro.setRepitePassword(repitePassword);
-       mav = controladorRegistro.registrar(datosRegistro);
+        DatosRegistro datosRegistro = new DatosRegistro();
+        datosRegistro.setEmail(email);
+        datosRegistro.setPassword(password);
+        datosRegistro.setRepitePassword(repitePassword);
+        mav = controladorRegistro.registrar(datosRegistro);
     }
 
     private void thenElUsuarioSeRegistroConExito() {

@@ -13,11 +13,19 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ControladorRegistrarme {
+<<<<<<< HEAD
     private ServicioUsuario servicioUsuario;
 
     @Autowired
     public ControladorRegistrarme(ServicioUsuario servicioUsuario){
            this.servicioUsuario = servicioUsuario;
+=======
+    private final ServicioUsuario servicioUsuario;
+
+    @Autowired
+    public ControladorRegistrarme(ServicioUsuario servicioUsuario){
+        this.servicioUsuario = servicioUsuario;
+>>>>>>> d6e0646... modificacion de la vista home
     }
 
     @RequestMapping(path = "/me-registro", method = RequestMethod.GET)
@@ -39,7 +47,11 @@ public class ControladorRegistrarme {
         return registroExitoso(model);
     }
 
+<<<<<<< HEAD
         private ModelAndView registroExitoso(ModelMap model) {
+=======
+    private ModelAndView registroExitoso(ModelMap model) {
+>>>>>>> d6e0646... modificacion de la vista home
         model.put("registrado", true);
         return new ModelAndView("redirect:/login", model);
     }

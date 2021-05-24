@@ -16,7 +16,7 @@ public class Usuario {
 	private String password;
 	private String rol;
 	private Boolean activo = false;
-	
+
 	public Long getId() {
 
 		return id;
@@ -64,9 +64,9 @@ public class Usuario {
 		this.password = password;
 	}
 	public boolean activo(){
-       return activo;
+		return activo;
 	}
 	public void activar(){
-       activo = true;
+		activo = true;
 	}
 }

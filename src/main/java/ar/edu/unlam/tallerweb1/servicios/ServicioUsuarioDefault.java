@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 @Transactional
 public class ServicioUsuarioDefault implements ServicioUsuario {
 
-    private RepositorioUsuarios tablaDeUsuarios = RepositorioUsuarios.getInstance();
+    private final RepositorioUsuarios tablaDeUsuarios = RepositorioUsuarios.getInstance();
 
 
     public Usuario registrar(DatosRegistro datos) {

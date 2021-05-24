@@ -10,9 +10,9 @@ public class RepositorioUsuarios {
     private static RepositorioUsuarios instance = new RepositorioUsuarios();
     private RepositorioUsuarios() { }
     public static RepositorioUsuarios getInstance(){
-     return instance;
+        return instance;
     }
-    private Map<String, Usuario> tablaDeUsuarios = new HashMap<>();
+    private final Map<String, Usuario>  tablaDeUsuarios = new HashMap<>();
 
     public boolean existeUsuarioCon(String email){
         return tablaDeUsuarios.containsKey(email);

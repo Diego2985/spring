@@ -7,7 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.inject.Inject;
+
 
 
 @Repository("repositorioUsuario")
@@ -15,9 +15,9 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 
 	// Como todo repositorio maneja acciones de persistencia, normalmente estará inyectado el session factory de hibernate
 	// el mismo está difinido en el archivo hibernateContext.xml
-	private SessionFactory sessionFactory;
+	private final SessionFactory sessionFactory;
 
-    @Autowired
+	@Autowired
 	public RepositorioUsuarioImpl(SessionFactory sessionFactory){
 		this.sessionFactory = sessionFactory;
 	}

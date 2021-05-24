@@ -4,5 +4,5 @@ import ar.edu.unlam.tallerweb1.controladores.DatosRegistro;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
 
 public interface ServicioUsuario {
-    Usuario registrar(DatosRegistro datos);
+	Usuario registrar(DatosRegistro datos);
 }
