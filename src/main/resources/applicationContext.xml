@@ -15,21 +15,14 @@
 
 	<import resource="classpath:hibernateContext.xml" />
 
-<<<<<<< HEAD
-	<!--Se indica que la configuracion del MVC se hará utilizanbdo anotaciones-->
-=======
+
 	<!--Se indica que la configuracion del MVC se hara utilizanbdo anotaciones-->
->>>>>>> d6e0646... modificacion de la vista home
+
 	<mvc:annotation-driven />
 
-	<!--Se indica que el transaction manager a utilizar en la capa de servicios es el bean declarado en hibernateContext.xml-->
-	<tx:annotation-driven transaction-manager="transactionManager" />
 
-<<<<<<< HEAD
-	<!--Se indican qué paquetes debe escanear Spring al levantar el contexto para encontrar componentes, -->
-=======
 	<!--Se indican que paquetes debe escanear Spring al levantar el contexto para encontrar componentes, -->
->>>>>>> d6e0646... modificacion de la vista home
+
 	<!--esto es clases anotadas como @Controller, @Service o @Repository-->
 	<context:component-scan base-package="ar.edu.unlam.tallerweb1.controladores" />
 	<context:component-scan base-package="ar.edu.unlam.tallerweb1.repositorios" />
