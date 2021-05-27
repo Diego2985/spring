@@ -61,9 +61,9 @@ public class ControladorLogin {
 		return new ModelAndView("redirect:/login");
 	}
 
-	@RequestMapping(path = "/detalleArticulo", method = RequestMethod.GET)
-	public ModelAndView irADetalle() {
-		return new ModelAndView("detalleArticulo");
-	}
+	//@RequestMapping(path = "/detalleArticulo", method = RequestMethod.GET)
+	//public ModelAndView irADetalle() {
+		//return new ModelAndView("detalleArticulo");
+	//}
 
 }

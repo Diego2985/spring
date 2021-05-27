@@ -29,7 +29,7 @@ public class ControladorRegistrarme {
         model.put("registro", new DatosRegistro());
         return new ModelAndView("registro", model);
     }
-    @RequestMapping(path = "/resgistrar", method = RequestMethod.POST)
+    @RequestMapping(path = "/registrar", method = RequestMethod.POST)
     public ModelAndView registrar(@ModelAttribute DatosRegistro datos){
         ModelMap model = new ModelMap();
         try {

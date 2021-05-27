@@ -24,7 +24,7 @@
                 <h5 class="card-title">Card title</h5>
                 <div class="container text-center">
                 <button class="btn" style="background-color: #a4ebf3">Agregar al carrito</button>
-                <button class="btn" style="background-color: #a4ebf3">Comprar</button>
+                <button class="btn" style="background-color: #a4ebf3" href="/detalleArticulo">Comprar</button>
                 </div>
             </div>
         </div>
