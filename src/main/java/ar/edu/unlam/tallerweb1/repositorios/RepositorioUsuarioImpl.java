@@ -15,7 +15,7 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 
 	// Como todo repositorio maneja acciones de persistencia, normalmente estará inyectado el session factory de hibernate
 	// el mismo está difinido en el archivo hibernateContext.xml
-	private final SessionFactory sessionFactory;
+	protected final SessionFactory sessionFactory;
 
 	@Autowired
 	public RepositorioUsuarioImpl(SessionFactory sessionFactory){
@@ -24,8 +24,6 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 
 	@Override
 	public Usuario consultarUsuario(Usuario usuario) {
-
-
 		final Session session = sessionFactory.getCurrentSession();
 		return (Usuario) session.createCriteria(Usuario.class)
 				.add(Restrictions.eq("email", usuario.getEmail()))
