@@ -19,6 +19,10 @@ public class Servicio {
         this.precio = precio;
     }
 
+    public Servicio() {
+
+    }
+
     public Long getId() {
         return id;
     }

@@ -17,11 +17,14 @@ public abstract class SpringTest {
 
     // Tiene inyectado el session factory para que los test que hereden de éste tengan acceso al mismo
     @Inject
-    protected SessionFactory sessionFactory;
+    private SessionFactory sessionFactory;
 
     // Metodo para obtener una sesion de base de datos
     protected Session session() {
         return this.sessionFactory.getCurrentSession();
     }
 
+    protected SessionFactory getSessionFactory() {
+        return this.sessionFactory;
+    }
 }
