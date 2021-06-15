@@ -26,6 +26,14 @@
 
     </bean>
 
+<!--    <bean id="conversionService"-->
+<!--          class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+<!--        <property name="converters">-->
+<!--            <list>-->
+<!--                <bean class="ar.edu.unlam.tallerweb1.converter.StringAServicioConvertidor"/>-->
+<!--            </list>-->
+<!--        </property>-->
+<!--    </bean>-->
 
     <!--Excluye de las URL validas para Spring MVC los recursos estaticos de la aplicacion Web: estilos, java script y fuentes-->
     <!--Si se agregaran, por ejemplo, imagenes, es; es necesario agregar ese path aca-->

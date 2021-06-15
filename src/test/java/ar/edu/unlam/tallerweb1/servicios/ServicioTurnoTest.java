@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
@@ -23,7 +24,7 @@ public class ServicioTurnoTest extends SpringTest {
     @Autowired
     private ServicioTurno servicioTurno;
 
-    private final LocalDate fecha = LocalDate.now();
+    private final Date fecha = new Date();
     private DatosTurno datosTurno;
     private Turno turnoRegistrado;
 
@@ -58,7 +59,7 @@ public class ServicioTurnoTest extends SpringTest {
 
     private void thenLaReservaFalla() {}
 
-    private void givenDatosTurno(LocalDate fecha, List<Servicio> servicios, Double precio) {
+    private void givenDatosTurno(Date fecha, List<Servicio> servicios, Double precio) {
         datosTurno = new DatosTurno(fecha, precio, servicios);
     }
 

@@ -10,4 +10,10 @@ public interface ServicioTurno {
     Turno reservar(DatosTurno datosTurno);
 
     List<Servicio> getServicios();
+
+    List<String> getHorasDisponibles();
+
+    String getFechaDesde();
+
+    String getFechaHasta();
 }

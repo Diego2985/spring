@@ -14,6 +14,12 @@ public class Servicio {
     private String nombre;
     private Double precio;
 
+    public Servicio(Long id, String nombre, Double precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+    }
+
     public Servicio(String nombre, Double precio) {
         this.nombre = nombre;
         this.precio = precio;
@@ -41,5 +47,10 @@ public class Servicio {
 
     public Double getPrecio() {
         return precio;
+    }
+
+    @Override
+    public String toString() {
+        return nombre;
     }
 }

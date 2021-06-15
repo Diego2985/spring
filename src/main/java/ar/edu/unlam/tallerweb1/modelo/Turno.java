@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,17 +14,19 @@ public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-    private LocalDate fecha;
+    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    private Date fecha;
     private Double precio;
+    private String hora;
     @OneToMany
     @JoinColumn(name = "fk_turno")
     private List<Servicio> servicios;
+    @Enumerated(EnumType.STRING)
     private TurnoEstado estado;
 //    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    private Usuario usuario;
 
-    public Turno(LocalDate fecha, Double precio, List<Servicio> servicios) {
+    public Turno(Date fecha, Double precio, List<Servicio> servicios) {
         this.fecha = fecha;
         this.precio = precio;
         this.servicios = servicios;
@@ -33,8 +36,7 @@ public class Turno {
 
     public Turno(DatosTurno datosTurno) {
         this.fecha = datosTurno.getFecha();
-        this.precio = datosTurno.getPrecio();
-        this.servicios = datosTurno.getServicios();
+        this.hora = datosTurno.getHoraSeleccionada();
         this.estado = TurnoEstado.PENDIENTE;
     }
 
@@ -46,11 +48,11 @@ public class Turno {
         this.id = id;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
