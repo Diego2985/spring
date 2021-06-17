@@ -10,7 +10,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
-    <title>Title</title>
+    <title>Veterinaria</title>
     <!-- Font Awesome -->
     <link
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"

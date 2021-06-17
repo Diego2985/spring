@@ -1,14 +1,14 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
+import ar.edu.unlam.tallerweb1.converter.EnumConverter;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 @Entity
+@Embeddable
 public class Turno {
 
     @Id
@@ -18,11 +18,14 @@ public class Turno {
     private Date fecha;
     private Double precio;
     private String hora;
-    @OneToMany
-    @JoinColumn(name = "fk_turno")
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<Servicio> servicios;
-    @Enumerated(EnumType.STRING)
+    @Column(name = "estado_turno")
+    @Convert(converter = EnumConverter.class)
     private TurnoEstado estado;
+
+    @Transient
+    private String serviciosSeleccionados = "";
 //    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 //    private Usuario usuario;
 
@@ -57,6 +60,13 @@ public class Turno {
     }
 
     public Double getPrecio() {
+        precio = 0.0;
+        servicios.forEach(item -> {
+            if (item != null) {
+                precio += item.getPrecio();
+            }
+        });
+
         return precio;
     }
 
@@ -80,7 +90,16 @@ public class Turno {
         this.estado = estado;
     }
 
-//    public Usuario getUsuario() {
+    public String getHora() {
+        return hora;
+    }
+
+    public String getServiciosSeleccionados() {
+        servicios.forEach(item -> serviciosSeleccionados += item.getNombre() + ", ");
+        return serviciosSeleccionados;
+    }
+
+    //    public Usuario getUsuario() {
 //        return usuario;
 //    }
 //

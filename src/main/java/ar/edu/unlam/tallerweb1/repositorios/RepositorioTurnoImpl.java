@@ -12,7 +12,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -69,9 +72,18 @@ public class RepositorioTurnoImpl implements RepositorioTurno {
 
     @Override
     public Turno consultarTurno(String fecha, String hora) {
-        // TODO hacer criteria para buscar el turno
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date date = new Date();
+
+        try {
+            date = sdf.parse(fecha);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
         return (Turno) sessionFactory.getCurrentSession()
                 .createCriteria(Turno.class)
+                .add(Restrictions.eq("fecha", date))
                 .add(Restrictions.eq("hora", hora))
                 .uniqueResult();
     }

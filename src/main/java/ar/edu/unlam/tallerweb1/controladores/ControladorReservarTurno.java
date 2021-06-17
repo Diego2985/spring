@@ -54,7 +54,7 @@ public class ControladorReservarTurno {
         } catch (ServicioNoSeleccionado e) {
             return reservaFallida(modelMap, "Servicio no seleccionado");
         } catch (TurnoExistente e) {
-            return reservaFallida(modelMap, "Turno no disponible. Seleccione otra hora");
+            return reservaFallida(modelMap, "Turno no disponible. Seleccione otro horario");
         }
 
         return reservaExitosa(modelMap);
