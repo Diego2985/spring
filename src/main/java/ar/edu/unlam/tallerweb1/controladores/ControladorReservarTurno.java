@@ -42,7 +42,7 @@ public class ControladorReservarTurno {
     }
 
     @RequestMapping(path = "/reservar-turno", method = RequestMethod.POST)
-    public ModelAndView reservar(@ModelAttribute("turno") DatosTurno datosTurno, BindingResult result) {
+    public ModelAndView reservar(@ModelAttribute("turno") DatosTurno datosTurno) {
         ModelMap modelMap = new ModelMap();
 
         try {
@@ -78,7 +78,7 @@ public class ControladorReservarTurno {
         return new ModelAndView("redirect:/reserva-exitosa", model);
     }
 
-    private ModelMap getDatosIniciales(ModelMap modelo) {
+    public ModelMap getDatosIniciales(ModelMap modelo) {
         List<Servicio> servicios = servicioTurno.getServicios();
         List<String> horas = servicioTurno.getHorasDisponibles();
 

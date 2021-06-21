@@ -1,4 +1,5 @@
 <%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: nicolasduarte
@@ -42,7 +43,7 @@
                     />
                     <div class="card-body">
                         <h5 class="card-title">Servicios: ${turno.serviciosSeleccionados}</h5>
-                        <h5 class="card-title">Fecha: ${turno.fecha} ${turno.hora} hs</h5>
+                        <h5 class="card-title">Fecha: <fmt:formatDate value="${turno.fecha}" pattern="dd MMMM" /> ${turno.hora} hs</h5>
                         <h5 class="card-title">Estado: ${turno.estado.name()}</h5>
                         <button class="btn" style="background-color: #a4ebf3" href="#">Ver más</button>
                     </div>

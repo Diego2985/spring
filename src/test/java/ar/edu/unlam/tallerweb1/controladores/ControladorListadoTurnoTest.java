@@ -23,9 +23,7 @@ public class ControladorListadoTurnoTest extends SpringTest  {
         thenMostrarListado(turnos);
     }
 
-    private void givenUsuario() {
-
-    }
+    private void givenUsuario() {}
 
     private void thenMostrarListado(List<Turno> turnos) {
         assertThat(turnos).isNotNull();

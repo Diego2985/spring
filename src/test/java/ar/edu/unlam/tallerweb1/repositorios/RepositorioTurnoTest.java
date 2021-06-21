@@ -42,7 +42,7 @@ public class RepositorioTurnoTest extends SpringTest {
     public void turnoNoDisponible() {
         givenTurnoYaExistente(fecha, "10:00", getServicios(), 1500.0);
 
-        whenSeReservaTurnoMismaFechaYHora("2021-06-16", "10:00");
+        whenSeReservaTurnoMismaFechaYHora(fecha, "10:00");
 
         thenElTurnoNoSeReserva();
     }
@@ -51,7 +51,7 @@ public class RepositorioTurnoTest extends SpringTest {
         assertThat(turno).isNotNull();
     }
 
-    private void whenSeReservaTurnoMismaFechaYHora(String fecha, String hora) {
+    private void whenSeReservaTurnoMismaFechaYHora(Date fecha, String hora) {
         turno = repositorioTurno.consultarTurno(fecha, hora);
     }
 

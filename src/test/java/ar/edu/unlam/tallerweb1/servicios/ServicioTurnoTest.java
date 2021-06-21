@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.servicios;
 
 import ar.edu.unlam.tallerweb1.SpringTest;
 import ar.edu.unlam.tallerweb1.excepciones.FechaNoSeleccionada;
+import ar.edu.unlam.tallerweb1.excepciones.HoraNoSeleccionada;
 import ar.edu.unlam.tallerweb1.excepciones.ServicioNoSeleccionado;
 import ar.edu.unlam.tallerweb1.interfaces.ServicioTurno;
 import ar.edu.unlam.tallerweb1.modelo.DatosTurno;
@@ -32,7 +33,7 @@ public class ServicioTurnoTest extends SpringTest {
     @Transactional
     @Rollback
     public void reservarTurno() {
-        givenDatosTurno(fecha, getServicios(), 1500.0);
+        givenDatosTurno(fecha, getServicios(), 1500.0, "10:00");
 
         whenReservarTurno();
 
@@ -41,7 +42,16 @@ public class ServicioTurnoTest extends SpringTest {
 
     @Test(expected = FechaNoSeleccionada.class)
     public void reservarTurnoFallaPorFechaNoSeleccionado() {
-        givenDatosTurno(null, getServicios(), 1500.0);
+        givenDatosTurno(null, getServicios(), 1500.0, "10:00");
+
+        whenReservarTurno();
+
+        thenLaReservaFalla();
+    }
+
+    @Test(expected = HoraNoSeleccionada.class)
+    public void reservarTurnoFallaPorHoraNoSeleccionada() {
+        givenDatosTurno(fecha, null, 1500.0, "");
 
         whenReservarTurno();
 
@@ -50,7 +60,7 @@ public class ServicioTurnoTest extends SpringTest {
 
     @Test(expected = ServicioNoSeleccionado.class)
     public void reservarTurnoFallaPorServicioNoSeleccionado() {
-        givenDatosTurno(fecha, null, 1500.0);
+        givenDatosTurno(fecha, null, 1500.0, "10:00");
 
         whenReservarTurno();
 
@@ -59,8 +69,13 @@ public class ServicioTurnoTest extends SpringTest {
 
     private void thenLaReservaFalla() {}
 
-    private void givenDatosTurno(Date fecha, List<Servicio> servicios, Double precio) {
-        datosTurno = new DatosTurno(fecha, precio, servicios);
+    private void givenDatosTurno(Date fecha, List<String> servicios, Double precio, String horaSeleccionada) {
+        servicioTurno.getServicios();
+        datosTurno = new DatosTurno()
+                .setFecha(fecha)
+                .setServiciosSeleccionados(servicios)
+                .setPrecio(precio)
+                .setHoraSeleccionada(horaSeleccionada);
     }
 
     private void whenReservarTurno() {
@@ -71,11 +86,11 @@ public class ServicioTurnoTest extends SpringTest {
         assertThat(turnoRegistrado).isNotNull();
     }
 
-    private List<Servicio> getServicios() {
-        List<Servicio> servicios = new ArrayList<>();
-        servicios.add(new Servicio("Corte de pelo", 300.0));
-        servicios.add(new Servicio("Corte de uñas", 100.0));
-        servicios.add(new Servicio("Baño", 250.0));
+    private List<String> getServicios() {
+        List<String> servicios = new ArrayList<>();
+        servicios.add("1");
+        servicios.add("2");
+
         return servicios;
     }
 }

@@ -14,7 +14,7 @@ public class Turno {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @DateTimeFormat(pattern = "dd-MM-yyyy")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fecha;
     private Double precio;
     private String hora;
@@ -26,8 +26,6 @@ public class Turno {
 
     @Transient
     private String serviciosSeleccionados = "";
-//    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    private Usuario usuario;
 
     public Turno(Date fecha, Double precio, List<Servicio> servicios) {
         this.fecha = fecha;
@@ -98,12 +96,4 @@ public class Turno {
         servicios.forEach(item -> serviciosSeleccionados += item.getNombre() + ", ");
         return serviciosSeleccionados;
     }
-
-    //    public Usuario getUsuario() {
-//        return usuario;
-//    }
-//
-//    public void setUsuario(Usuario usuario) {
-//        this.usuario = usuario;
-//    }
 }

@@ -30,17 +30,6 @@
 
                     <br><br>
 
-<%--                    <div class="dropdown">--%>
-<%--                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
-<%--                            Seleccione hora--%>
-<%--                        </button>--%>
-<%--                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">--%>
-<%--                            <a class="dropdown-item" href="#">Action</a>--%>
-<%--                            <a class="dropdown-item" href="#">Another action</a>--%>
-<%--                            <a class="dropdown-item" href="#">Something else here</a>--%>
-<%--                        </div>--%>
-<%--                    </div>--%>
-
                     <form:select path="horaSeleccionada">
                         <form:option value="" label="Seleccione hora"/>
                         <form:options items="${datosTurno.horas}" />
@@ -49,10 +38,11 @@
                     <br><br>
 
                     <label class="text-dark">Seleccione servicios:</label><br>
-                    <form:checkboxes items="${datosTurno.servicios}" path="serviciosSeleccionados"
-                                     itemLabel="nombre" itemValue="id" delimiter="<br/>" />
+                    <form:checkboxes items="${datosTurno.servicios}" path="serviciosSeleccionados" multiple="true"
+                                     itemLabel="nombre" itemValue="id" delimiter="<br/>" id="servicios"
+                                     onchange="cambiarPrecio()"/>
 
-                    <h4 class="text-center"><span>$${datosTurno.precio}</span></h4><br>
+                    <h4 class="text-center" id="precio"><span>$${datosTurno.precio}</span></h4><br>
 
                     <button class="btn btn-lg btn-primary btn-block" type="submit"/>Reservar</button>
                 </form:form>
@@ -69,6 +59,7 @@
         <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
         <script src="${pageContext.request.contextPath}/https://unpkg.com/@popperjs/core@2"></script>
         <script src="${pageContext.request.contextPath}/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="${pageContext.request.contextPath}/js/reservar-turno.js" type="text/javascript"></script>
 
 
         <%@ include file = "partial/footer.jsp" %>

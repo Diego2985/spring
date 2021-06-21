@@ -12,8 +12,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.Serializable;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -71,19 +69,10 @@ public class RepositorioTurnoImpl implements RepositorioTurno {
     }
 
     @Override
-    public Turno consultarTurno(String fecha, String hora) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date();
-
-        try {
-            date = sdf.parse(fecha);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+    public Turno consultarTurno(Date fecha, String hora) {
         return (Turno) sessionFactory.getCurrentSession()
                 .createCriteria(Turno.class)
-                .add(Restrictions.eq("fecha", date))
+                .add(Restrictions.eq("fecha", fecha))
                 .add(Restrictions.eq("hora", hora))
                 .uniqueResult();
     }

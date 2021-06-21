@@ -47,7 +47,7 @@ public class ServicioTurnoImpl implements ServicioTurno {
         }
 
         Turno turnoExistente = repositorioTurno.consultarTurno(
-                datosTurno.getFecha().toString(),
+                datosTurno.getFecha(),
                 datosTurno.getHoraSeleccionada()
         );
 
