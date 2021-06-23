@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
     public class ControladorArticulo {
 
         @Autowired
-        private ServicioArticulo servicioArticulo;
+        private final ServicioArticulo servicioArticulo;
         @Autowired
         public ControladorArticulo(ServicioArticulo servicioArticulo) {
             this.servicioArticulo = servicioArticulo;

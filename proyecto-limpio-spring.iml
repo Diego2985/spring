@@ -6,7 +6,7 @@
         <setting name="validation-enabled" value="true" />
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
-          <factory-entry name="proyecto-limpio-spring" />
+          <factory-entry name="proyecto-limpio-spring" value="a4964704-eb30-42f6-9ec4-57d4e7e33c9e" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>

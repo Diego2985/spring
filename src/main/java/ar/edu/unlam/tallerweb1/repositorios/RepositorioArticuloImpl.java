@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 public class RepositorioArticuloImpl implements  RepositorioArticulo{
 
     private SessionFactory sessionFactory;
+
     @Override
     public Articulo verArticulo(Long id) {
         final Session session = this.sessionFactory.getCurrentSession();

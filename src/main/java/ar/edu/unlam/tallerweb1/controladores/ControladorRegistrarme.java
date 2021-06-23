@@ -27,7 +27,7 @@ public class ControladorRegistrarme {
     public ModelAndView irAPagina2(){
         ModelMap model =new ModelMap();
         model.put("registro", new DatosRegistro());
-        return new ModelAndView("registro", model);
+        return new ModelAndView("formularioUsuario", model);
     }
     @RequestMapping(path = "/registrar", method = RequestMethod.POST)
     public ModelAndView registrar(@ModelAttribute DatosRegistro datos){
@@ -35,7 +35,7 @@ public class ControladorRegistrarme {
         try {
             servicioUsuario.registrar(datos);
         } catch (UsuarioExistente e){
-            return registroFallido(model, "usuario existente");
+            return registroFallido(model, "usuario ya existente");
         } catch (ClavesNoCoinciden e){
             return registroFallido(model, "las claves no son iguales");
         }
@@ -51,10 +51,10 @@ public class ControladorRegistrarme {
         return new ModelAndView("redirect:/login", model);
     }
     private ModelAndView registroFallido(ModelMap model, String usuario_existente) {
-        model.put("registrado", false);
+        model.put("registrado", true);
         model.put("mostrar", "Nuevo Usuario");
-        model.put("registro", new DatosRegistro());
+        model.put("redirect:/login", new DatosRegistro());
         model.put("error", usuario_existente);
-        return new ModelAndView("registro", model);
+        return new ModelAndView("formularioUsuario", model);
     }
 }

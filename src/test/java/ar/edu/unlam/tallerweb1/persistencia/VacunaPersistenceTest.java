@@ -6,6 +6,7 @@ import ar.edu.unlam.tallerweb1.modelo.Vacuna;
 
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioVacuna;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +14,7 @@ import static org.assertj.core.api.Assertions.*;
 
 public class VacunaPersistenceTest  extends SpringTest {
 
+    @Autowired
     private RepositorioVacuna repositorio;
 
     @Test

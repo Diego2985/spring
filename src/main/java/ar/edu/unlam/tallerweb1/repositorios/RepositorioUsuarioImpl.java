@@ -33,4 +33,14 @@ public class RepositorioUsuarioImpl implements RepositorioUsuario {
 				.uniqueResult();
 	}
 
+	@Override
+	public void guardar(Usuario usuario) {
+		sessionFactory.getCurrentSession().save(usuario);
+	}
+
+	@Override
+	public Usuario buscarPor(Long id) {
+		return sessionFactory.getCurrentSession().get(Usuario.class, id);
+	}
+
 }

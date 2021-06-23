@@ -23,7 +23,7 @@ public class Articulo {
         this.setPrecio(precio);
     }
 
-    public Articulo() { };
+    public Articulo() { }
 
     public Long getId() {
         return id;

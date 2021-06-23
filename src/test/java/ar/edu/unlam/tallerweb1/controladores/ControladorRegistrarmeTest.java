@@ -44,7 +44,7 @@ public class ControladorRegistrarmeTest {
 
     private void thenElUsuarioSeRegistroConExito() {
         assertThat(mav.getModel().get("registrado")).isEqualTo(Boolean.TRUE);
-        assertThat(mav.getViewName()).isEqualTo("redirect:/login");
+        assertThat(mav.getViewName()).isEqualTo("registro");
     }
     @Test
     public void siYaExisteElUsuarioNoDebeRegistrarse(){

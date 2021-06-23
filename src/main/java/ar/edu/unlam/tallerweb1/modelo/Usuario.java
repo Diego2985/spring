@@ -1,9 +1,7 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -12,10 +10,29 @@ public class Usuario {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	@Column
 	private String email;
+	@Column
 	private String password;
+
 	private String rol;
 	private Boolean activo = false;
+
+	@Column
+	private String nombre;
+
+	@Column
+	private Integer telefono;
+
+	@Column
+	private String direccion;
+
+	@OneToMany
+	private List<Gato> gato;
+
+	public Usuario() {
+
+	}
 
 	public Long getId() {
 
@@ -58,7 +75,6 @@ public class Usuario {
 		this.activo = activo;
 	}
 
-	public Usuario(){}
 	public Usuario(String email, String password){
 		this.email = email;
 		this.password = password;
@@ -66,7 +82,22 @@ public class Usuario {
 	public boolean activo(){
 		return activo;
 	}
+
 	public void activar(){
 		activo = true;
 	}
+
+	public String getNombre() {return nombre;}
+
+	public void setNombre(String nombre) {this.nombre = nombre;
+	}
+
+	public void setDireccion(String direccion) {this.direccion = direccion;}
+
+	public String getDireccion() {return direccion;
+	}
+
+	public void setTelefono(Integer telefono) {this.telefono = telefono;}
+
+	public Integer getTelefono() {return telefono;}
 }
