@@ -16,15 +16,11 @@
     </head>
     <body>
         <div class="row d-flex">
-            <form action="${pageContext.request.contextPath}/reservar-turno">
-                <button type="submit" class="btn btn-lg btn-primary btn-block">
-                    Reservar Turno
-                </button>
-            </form>
+            <a href="${pageContext.request.contextPath}/reservar-turno" class="btn btn-lg btn-primary mt-4">Reservar Turno</a>
         </div>
 
         <c:if test="${empty turnos}">
-            <div class="text-center mt-5 mb-5">
+            <div class="text-center mt-5 mb-5 p-5">
                 <h4><span>No tenés turnos</span></h4>
                 <p>Para reservar presiona en "Reservar Turno"</p>
                 <br>

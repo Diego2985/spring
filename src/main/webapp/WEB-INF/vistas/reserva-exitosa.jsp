@@ -14,7 +14,7 @@
     </head>
     <body>
 
-        <div class="card text-center mt-5 mb-5">
+        <div class="card text-center mt-5 mb-5 p-5">
             <div class="text-center">
                 <img
                         class="card-img-100"

@@ -39,10 +39,9 @@
 
                     <label class="text-dark">Seleccione servicios:</label><br>
                     <form:checkboxes items="${datosTurno.servicios}" path="serviciosSeleccionados" multiple="true"
-                                     itemLabel="nombre" itemValue="id" delimiter="<br/>" id="servicios"
-                                     onchange="cambiarPrecio()"/>
+                                     itemLabel="nombre" itemValue="id" delimiter="<br/>" onchange="cambiarPrecio()"/>
 
-                    <h4 class="text-center" id="precio"><span>$${datosTurno.precio}</span></h4><br>
+                    <h4 class="text-center" id="precio"><span>$0</span></h4><br>
 
                     <button class="btn btn-lg btn-primary btn-block" type="submit"/>Reservar</button>
                 </form:form>

@@ -1,6 +1,8 @@
 package ar.edu.unlam.tallerweb1.modelo;
 
 import ar.edu.unlam.tallerweb1.converter.EnumConverter;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -19,6 +21,7 @@ public class Turno {
     private Double precio;
     private String hora;
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @Fetch(FetchMode.SUBSELECT)
     private List<Servicio> servicios;
     @Column(name = "estado_turno")
     @Convert(converter = EnumConverter.class)
@@ -93,7 +96,12 @@ public class Turno {
     }
 
     public String getServiciosSeleccionados() {
-        servicios.forEach(item -> serviciosSeleccionados += item.getNombre() + ", ");
+        for (int i = 0; i < servicios.size(); i++) {
+            serviciosSeleccionados += servicios.get(i).getNombre();
+            if (i < servicios.size() - 1) {
+                serviciosSeleccionados += ", ";
+            }
+        }
         return serviciosSeleccionados;
     }
 }

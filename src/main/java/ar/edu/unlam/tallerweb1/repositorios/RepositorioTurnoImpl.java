@@ -3,6 +3,7 @@ package ar.edu.unlam.tallerweb1.repositorios;
 import ar.edu.unlam.tallerweb1.interfaces.RepositorioTurno;
 import ar.edu.unlam.tallerweb1.modelo.Servicio;
 import ar.edu.unlam.tallerweb1.modelo.Turno;
+import com.google.protobuf.DescriptorProtos;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
