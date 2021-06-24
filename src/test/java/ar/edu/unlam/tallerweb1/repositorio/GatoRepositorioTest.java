@@ -7,6 +7,7 @@ import ar.edu.unlam.tallerweb1.modelo.Gato;
 
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioGato;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -17,6 +18,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class GatoRepositorioTest extends SpringTest {
 
+    @Autowired
     private RepositorioGato repositorio;
 
     @Test
@@ -38,7 +40,7 @@ public class GatoRepositorioTest extends SpringTest {
     }
 
     private Long whenSeGuardoGato(Gato gato) {
-        repositorio.guardar(gato);
+        repositorio.guardarGato(gato);
         return gato.getId();
     }
 

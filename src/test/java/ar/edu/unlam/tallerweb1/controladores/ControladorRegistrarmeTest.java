@@ -9,12 +9,15 @@ import static org.assertj.core.api.Assertions.*;
 
 
 public class ControladorRegistrarmeTest {
-    private final Usuario USUARIO = usuario("juan@mail.com", "password2345");
+    private final Usuario USUARIO = usuario("Lucas Perez", "lucas@mail.com", "1345", "Brown 2317", "4481-7032");
 
-    private Usuario usuario(String s, String password2345) {
+    private Usuario usuario(String nombre,String email, String password, String direccion, String telefono) {
         Usuario usuario = new Usuario();
-        usuario.setEmail(s);
-        usuario.setPassword(password2345);
+        usuario.setNombre(nombre);
+        usuario.setEmail(email);
+        usuario.setPassword(password);
+        usuario.setDireccion(direccion);
+        usuario.setTelefono(telefono);
         return usuario;
     }
 
@@ -25,7 +28,7 @@ public class ControladorRegistrarmeTest {
     public void siNoExisteElUsuarioDebeRegistrarse(){
         givenUsuarioNoRegistrado(USUARIO);
 
-        whenRegistroElUsuario(USUARIO.getEmail(), USUARIO.getPassword(),USUARIO.getPassword()+ "3564278" );
+        whenRegistroElUsuario(USUARIO.getNombre(), USUARIO.getEmail(), USUARIO.getPassword(),USUARIO.getPassword()+ "3564278", USUARIO.getDireccion(), USUARIO.getTelefono());
 
         thenElUsuarioSeRegistroConExito();
     }
@@ -34,27 +37,31 @@ public class ControladorRegistrarmeTest {
 
     }
 
-    private void whenRegistroElUsuario(String email, String password, String repitePassword) {
+    private void whenRegistroElUsuario(String nombre, String email, String password, String repitePassword, String direccion, String telefono) {
         DatosRegistro datosRegistro = new DatosRegistro();
+        datosRegistro.setNombre(nombre);
         datosRegistro.setEmail(email);
         datosRegistro.setPassword(password);
         datosRegistro.setRepitePassword(repitePassword);
+        datosRegistro.setDireccion(direccion);
+        datosRegistro.setTelefono(telefono);
         mav = controladorRegistro.registrar(datosRegistro);
     }
 
     private void thenElUsuarioSeRegistroConExito() {
         assertThat(mav.getModel().get("registrado")).isEqualTo(Boolean.TRUE);
-        assertThat(mav.getViewName()).isEqualTo("registro");
+        assertThat(mav.getViewName()).isEqualTo("login");
     }
     @Test
     public void siYaExisteElUsuarioNoDebeRegistrarse(){
         givenUsuarioRegistrado(USUARIO);
 
-        whenRegistroElUsuario(USUARIO.getEmail(), USUARIO.getPassword(), USUARIO.getPassword());
+        whenRegistroElUsuario(USUARIO.getNombre(), USUARIO.getEmail(), USUARIO.getPassword(),USUARIO.getPassword()+ "3564278", USUARIO.getDireccion(), USUARIO.getTelefono());
 
         thenRegistraFallaPor("usuario ya existente");
 
     }
+
 
     private void givenUsuarioRegistrado(Usuario usuario) {
         DatosRegistro datosRegistro = new DatosRegistro();
@@ -65,12 +72,13 @@ public class ControladorRegistrarmeTest {
 
     }
 
-    private void thenRegistraFallaPor(String usuario_ya_existente) {
+    private void thenRegistraFallaPor(String usuario_Ya_Existente) {
         assertThat(mav.getModel().get("registrado")).isEqualTo(Boolean.TRUE);
-        assertThat(mav.getModel().get("error")).isEqualTo(usuario_ya_existente);
+        assertThat(mav.getModel().get("error")).isEqualTo(usuario_Ya_Existente);
         assertThat(mav.getViewName()).isEqualTo("registro");
 
     }
+
 
 
 }

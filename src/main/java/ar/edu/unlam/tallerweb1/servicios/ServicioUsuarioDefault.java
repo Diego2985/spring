@@ -3,6 +3,8 @@ package ar.edu.unlam.tallerweb1.servicios;
 
 import ar.edu.unlam.tallerweb1.controladores.DatosRegistro;
 import ar.edu.unlam.tallerweb1.modelo.Usuario;
+import ar.edu.unlam.tallerweb1.repositorios.RepositorioUsuario;
+
 import ar.edu.unlam.tallerweb1.repositorios.RepositorioUsuarios;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +16,13 @@ public class ServicioUsuarioDefault implements ServicioUsuario {
 
     private final RepositorioUsuarios tablaDeUsuarios = RepositorioUsuarios.getInstance();
 
+    private RepositorioUsuario repositorioUsuario;
+
 
     public Usuario registrar(DatosRegistro datos) {
-        if (!datos.getPassword().equals(datos.getRepitePassword())){
-            throw new ClavesNoCoinciden();
-        }
+      //  if (!datos.getPassword().equals(datos.getRepitePassword())){
+        //    throw new ClavesNoCoinciden();
+       // }
         if (tablaDeUsuarios.existeUsuarioCon(datos.getEmail())){
             throw new UsuarioExistente();
         }
@@ -27,4 +31,6 @@ public class ServicioUsuarioDefault implements ServicioUsuario {
         return nuevoUsuario;
 
     }
+
+
 }

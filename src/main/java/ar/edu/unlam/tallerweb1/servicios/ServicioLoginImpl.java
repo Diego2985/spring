@@ -23,11 +23,13 @@ public class ServicioLoginImpl implements ServicioLogin {
 
 	@Autowired
 	public ServicioLoginImpl(RepositorioUsuario servicioLoginDao){
+
 		this.servicioLoginDao = servicioLoginDao;
 	}
 
 	@Override
 	public Usuario consultarUsuario (Usuario usuario) {
+
 		return servicioLoginDao.consultarUsuario(usuario);
 	}
 

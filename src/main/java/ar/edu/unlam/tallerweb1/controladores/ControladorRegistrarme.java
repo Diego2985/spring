@@ -1,6 +1,6 @@
 package ar.edu.unlam.tallerweb1.controladores;
 
-import ar.edu.unlam.tallerweb1.servicios.ClavesNoCoinciden;
+import ar.edu.unlam.tallerweb1.servicios.ServicioGato;
 import ar.edu.unlam.tallerweb1.servicios.ServicioUsuario;
 import ar.edu.unlam.tallerweb1.servicios.UsuarioExistente;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,44 +17,43 @@ public class ControladorRegistrarme {
 
     private final ServicioUsuario servicioUsuario;
 
+
     @Autowired
-    public ControladorRegistrarme(ServicioUsuario servicioUsuario){
+    public ControladorRegistrarme(ServicioUsuario servicioUsuario) {
         this.servicioUsuario = servicioUsuario;
 
+
     }
 
-    @RequestMapping(path = "/me-registro", method = RequestMethod.GET)
-    public ModelAndView irAPagina2(){
-        ModelMap model =new ModelMap();
+    @RequestMapping(path = "/registro", method = RequestMethod.GET)
+    public ModelAndView irARegistro() {
+        ModelMap model = new ModelMap();
         model.put("registro", new DatosRegistro());
-        return new ModelAndView("formularioUsuario", model);
+        return new ModelAndView("registro", model);
     }
-    @RequestMapping(path = "/registrar", method = RequestMethod.POST)
-    public ModelAndView registrar(@ModelAttribute DatosRegistro datos){
+
+    @RequestMapping(path = "/registro", method = RequestMethod.POST)
+    public ModelAndView registrar(@ModelAttribute DatosRegistro datos) {
         ModelMap model = new ModelMap();
         try {
             servicioUsuario.registrar(datos);
-        } catch (UsuarioExistente e){
+        } catch (UsuarioExistente e) {
             return registroFallido(model, "usuario ya existente");
-        } catch (ClavesNoCoinciden e){
-            return registroFallido(model, "las claves no son iguales");
         }
         return registroExitoso(model);
     }
 
-
-
-
     private ModelAndView registroExitoso(ModelMap model) {
 
         model.put("registrado", true);
-        return new ModelAndView("redirect:/login", model);
+        return new ModelAndView("login", model);
     }
+
     private ModelAndView registroFallido(ModelMap model, String usuario_existente) {
         model.put("registrado", true);
         model.put("mostrar", "Nuevo Usuario");
         model.put("redirect:/login", new DatosRegistro());
         model.put("error", usuario_existente);
-        return new ModelAndView("formularioUsuario", model);
+        return new ModelAndView("registro", model);
     }
 }

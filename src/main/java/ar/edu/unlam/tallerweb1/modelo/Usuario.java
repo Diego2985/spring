@@ -16,13 +16,14 @@ public class Usuario {
 	private String password;
 
 	private String rol;
+
 	private Boolean activo = false;
 
 	@Column
 	private String nombre;
 
 	@Column
-	private Integer telefono;
+	private String telefono;
 
 	@Column
 	private String direccion;
@@ -97,7 +98,7 @@ public class Usuario {
 	public String getDireccion() {return direccion;
 	}
 
-	public void setTelefono(Integer telefono) {this.telefono = telefono;}
+	public void setTelefono(String telefono) {this.telefono = telefono;}
 
-	public Integer getTelefono() {return telefono;}
+	public String getTelefono() {return telefono;}
 }

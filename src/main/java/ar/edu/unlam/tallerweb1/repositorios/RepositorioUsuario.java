@@ -10,4 +10,6 @@ public interface RepositorioUsuario {
     void guardar(Usuario usuario);
 
     Usuario buscarPor(Long id);
+
+
 }

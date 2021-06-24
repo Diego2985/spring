@@ -20,7 +20,6 @@ public class ControladorLogin {
 
 	@Autowired
 	public ControladorLogin(ServicioLogin servicioLogin){
-
 		this.servicioLogin = servicioLogin;
 	}
 
@@ -43,7 +42,7 @@ public class ControladorLogin {
 		Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
 		if (usuarioBuscado != null) {
 			request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
-			return new ModelAndView("redirect:/home");
+			return new ModelAndView("redirect:/inicio");
 		} else {
 
 			model.put("error", "Usuario o clave incorrecta");
@@ -56,10 +55,14 @@ public class ControladorLogin {
 		return new ModelAndView("home");
 	}
 
-	@RequestMapping(path = "/", method = RequestMethod.GET)
-	public ModelAndView inicio() {
-		return new ModelAndView("redirect:/login");
-	}
+	//@RequestMapping(path = "/home", method = RequestMethod.GET)
+	//public ModelAndView inicio() {
+
+	//	return new ModelAndView("login");
+	//}
+
+	//@RequestMapping(path = "/crear-usuario", method = RequestMethod.POST)
+	//public ModelAndView crearUsuario(@ModelAttribute(Usuario))
 
 	//@RequestMapping(path = "/detalleArticulo", method = RequestMethod.GET)
 	//public ModelAndView irADetalle() {

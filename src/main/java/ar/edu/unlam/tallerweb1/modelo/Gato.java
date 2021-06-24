@@ -20,15 +20,17 @@ public class Gato {
     @Column(nullable = false)
     private String color;
 
+    public String getNombre() {return nombre;}
 
-    public void setNombre(String silvestre) {
-    }
+    public void setNombre(String nombre) {this.nombre = nombre;}
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
-    }
+    public Date getFechaNacimiento() {return fechaNacimiento;}
 
-    public void setColor(String negro) {
-    }
+    public void setFechaNacimiento(Date fechaNacimiento) {this.fechaNacimiento = fechaNacimiento;}
+
+    public String getColor(){return this.color;}
+
+    public void setColor(String color) {this.color = color;}
 
     public Long getId() {
         return this.id;

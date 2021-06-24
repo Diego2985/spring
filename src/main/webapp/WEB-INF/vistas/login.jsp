@@ -1,7 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@include file="partial/headers.jsp"%>
-<!DOCTYPE html>
 <html>
 <head>
     <!-- Bootstrap core CSS -->
@@ -15,17 +14,16 @@
         <%--Definicion de un form asociado a la accion /validar-login por POST. Se indica ademas que el model attribute se--%>
         <%--debe referenciar con el nombre usuario, spring mapea los elementos de la vista con los atributos de dicho objeto--%>
         <%--para eso debe coincidir el valor del elemento path de cada input con el nombre de un atributo del objeto --%>
-        <form:form action="validar-login" method="POST" modelAttribute="usuario">
-            <h3 class="form-signin-heading">Iniciar Sesion</h3>
+        <form:form action="login.jsp" method="POST" modelAttribute="usuario">
+        <h3 class="form-signin-heading">Iniciar Sesion</h3>
             <hr class="colorgraph"><br>
 
             <%--Elementos de entrada de datos, el elemento path debe indicar en que atributo del objeto usuario se guardan los datos ingresados--%>
-            <form:input placeholder="email" path="email" id="email" type="email" class="form-control" />
-            <form:input placeholder="contraseña" path="password" type="password" id="password" class="form-control"/>
-
+            <form:input path="email" id="email" type="email" class="form-control" />
+            <form:input path="password" type="password" id="password" class="form-control"/>
             <button class="btn btn-lg btn-primary btn-block" Type="Submit"/>Ingresar</button>
         </form:form>
-        <a class="btnEmpezar" href="formularioUsuario.jsp">Registrarse</a>
+        <a class="btnEmpezar" href="${ pageContext.request.contextPath}/registro">Registrarse</a>
         <%--Bloque que es viplaceholder="email"sible si el elemento error no está vacío	--%>
         <c:if test="${not empty error}">
             <h4><span>${error}</span></h4>
