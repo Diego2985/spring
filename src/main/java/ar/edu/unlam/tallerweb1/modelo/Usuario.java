@@ -29,7 +29,7 @@ public class Usuario {
 	private String direccion;
 
 	@OneToMany
-	private List<Gato> gato;
+	private List<Gato> gato;// hacer una clase animal y especie dentro de especie debe tener id y tipoNombre, y en animal contener el id de especie donde va tener los atributos del animal (edad, nombre y color)
 
 	public Usuario() {
 
