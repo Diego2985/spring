@@ -60,13 +60,19 @@
             <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dashboard</a>
+                    <a class="nav-link" href="${contextPath}/home">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Team</a>
+                    <a class="nav-link" href="${contextPath}/nosotros">Nosotros</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${contextPath}/galeriaArticulos">Articulos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="${contextPath}/listado-turnos">Mis Turnos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="${contextPath}/contacto">Contacto</a>
                 </li>
             </ul>
             <!-- Left links -->

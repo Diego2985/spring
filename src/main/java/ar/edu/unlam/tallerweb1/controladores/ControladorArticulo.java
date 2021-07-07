@@ -16,9 +16,20 @@ import org.springframework.web.servlet.ModelAndView;
             this.servicioArticulo = servicioArticulo;
         }
 
-        @RequestMapping("/detalleArticulo")
-        public ModelAndView irADetalleArticulo() {
+        //@RequestMapping("/detalleArticulo")
+        //public ModelAndView irADetalleArticulo() {
 
+          //  return new ModelAndView("detalleArticulo");
+        //}
+        @RequestMapping("/galeriaArticulos")
+        public ModelAndView irAGaleriaArticulos(){
+            return new ModelAndView("galeriaArticulos");
+        }
+
+        @RequestMapping("/detalleArticulo")
+        public ModelAndView irADetalleArticulo(){
             return new ModelAndView("detalleArticulo");
         }
+
+
     }

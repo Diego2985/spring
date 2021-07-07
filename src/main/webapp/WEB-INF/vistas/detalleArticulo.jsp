@@ -15,11 +15,11 @@
         <button class="btn mt-5" style="background-color: #a4ebf3">Comprar</button>
     </div>
 </div>
-<div>
+<!--<div>
     <hr>
     <h2 class="text-center">Articulos recomendados</h2>
-    <%@ include file = "articulos.jsp" %>
-</div>
+
+</div>-->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" ></script>
 <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>

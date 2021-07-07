@@ -15,9 +15,9 @@ public class Articulo {
 
     private String descripcion;
 
-    private float precio;
+    private Double precio;
 
-    public Articulo(String tituloArticulo,String descripcion,float precio) {
+    public Articulo(String tituloArticulo,String descripcion,Double precio) {
         this.setTituloArticulo(tituloArticulo);
         this.setDescripcion(descripcion);
         this.setPrecio(precio);
@@ -31,16 +31,16 @@ public class Articulo {
     public void setId(Long id) {
         this.id = id;
     }
-    public float getPrecio() { return precio; }
-    private void setPrecio(float precio) {
+    public Double getPrecio() { return precio; }
+    public void setPrecio(Double precio) {
         this.precio=precio;
     }
     public String getDescripcion() { return descripcion; }
-    private void setDescripcion(String descripcion) {
+    public void setDescripcion(String descripcion) {
         this.descripcion=descripcion;
     }
     public String getTituloArticulo() { return tituloArticulo; }
-    private void setTituloArticulo(String tituloArticulo) {
+    public void setTituloArticulo(String tituloArticulo) {
         this.tituloArticulo=tituloArticulo;
     }
 

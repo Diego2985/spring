@@ -9,6 +9,11 @@
     <link href="css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
+<!--
+   if(request.getParameter("btn_ingresar")!= null){
+       String email = request.getParameter("email");
+       String password = request.getParameter("password");
+   } %>-->
 <div class = "container">
     <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
         <%--Definicion de un form asociado a la accion /validar-login por POST. Se indica ademas que el model attribute se--%>
@@ -19,12 +24,12 @@
             <hr class="colorgraph"><br>
 
             <%--Elementos de entrada de datos, el elemento path debe indicar en que atributo del objeto usuario se guardan los datos ingresados--%>
-            <form:input path="email" id="email" type="email" class="form-control" />
-            <form:input path="password" type="password" id="password" class="form-control"/>
-            <button class="btn btn-lg btn-primary btn-block" Type="Submit"/>Ingresar</button>
+            <form:input path="email" id="email" type="email" class="form-control" name="email" />
+            <form:input path="password" type="password" id="password" class="form-control" name="password"/>
+            <button class="btn btn-lg btn-primary btn-block" Type="Submit" name="btn_ingresar"/>Ingresar</button>
         </form:form>
         <a class="btnEmpezar" href="${ pageContext.request.contextPath}/registro">Registrarse</a>
-        <%--Bloque que es viplaceholder="email"sible si el elemento error no está vacío	--%>
+        <%--Bloque que es placeholder="email" visible si el elemento error no está vacío	--%>
         <c:if test="${not empty error}">
             <h4><span>${error}</span></h4>
             <br>
