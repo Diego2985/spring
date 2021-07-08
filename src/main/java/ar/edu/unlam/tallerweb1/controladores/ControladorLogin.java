@@ -42,7 +42,7 @@ public class ControladorLogin {
 		Usuario usuarioBuscado = servicioLogin.consultarUsuario(usuario);
 		if (usuarioBuscado != null) {
 			request.getSession().setAttribute("ROL", usuarioBuscado.getRol());
-			return new ModelAndView("redirect:/inicio");
+			return new ModelAndView("redirect:/home");
 		} else {
 
 			model.put("error", "Usuario o clave incorrecta");
@@ -55,11 +55,9 @@ public class ControladorLogin {
 		return new ModelAndView("home");
 	}
 
-	//@RequestMapping(path = "/home", method = RequestMethod.GET)
-	//public ModelAndView inicio() {
-
-	//	return new ModelAndView("login");
-	//}
+	@RequestMapping(path = "/", method = RequestMethod.GET)
+	public ModelAndView inicio() {return new ModelAndView("redirect:/login");
+	}
 
 	//@RequestMapping(path = "/crear-usuario", method = RequestMethod.POST)
 	//public ModelAndView crearUsuario(@ModelAttribute(Usuario))

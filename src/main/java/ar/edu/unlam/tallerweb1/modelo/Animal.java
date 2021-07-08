@@ -2,6 +2,7 @@ package ar.edu.unlam.tallerweb1.modelo;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 public class Animal {
@@ -17,6 +18,9 @@ public class Animal {
     private Date fechaNacimiento;
 
     private String color;
+
+    @ManyToOne
+    private List<Especie> especies;
     
     
     public void setMascota(String mascota) {

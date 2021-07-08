@@ -16,7 +16,7 @@ values('martin@mail.com', 3456, 'admin'),
       ('maria@mail.com', 2189, 'admin'),
       ('carlos@mail.com', 2906, 'admin');*/
 
-select*from articulo;
+select*from usuario;
 alter table cliente drop column password;
 
 insert into servicio(nombre, precio)
@@ -28,3 +28,5 @@ values("superman", 1500.00, "disfraz"),
       ("pirata", 1200.00, "disfraz"),
       ("pijama", 2400.00, "enterizo"),
       ("chaleco militar", 3000.00, "chaleco");
+insert into usuario(activo, email, password, rol, direccion, nombre, telefono)
+values("1", "damian@mail.com", 1234, "admin", "Maidana 2345", "Damian Martinez", 1145673893);      

@@ -24,8 +24,8 @@
             <hr class="colorgraph"><br>
 
             <%--Elementos de entrada de datos, el elemento path debe indicar en que atributo del objeto usuario se guardan los datos ingresados--%>
-            <form:input path="email" id="email" type="email" class="form-control" name="email" />
-            <form:input path="password" type="password" id="password" class="form-control" name="password"/>
+            <form:input path="email" id="email" type="email" class="form-control" name="email" required="required"/>
+            <form:input path="password" type="password" id="password" class="form-control" name="password" required="required"/>
             <button class="btn btn-lg btn-primary btn-block" Type="Submit" name="btn_ingresar"/>Ingresar</button>
         </form:form>
         <a class="btnEmpezar" href="${ pageContext.request.contextPath}/registro">Registrarse</a>

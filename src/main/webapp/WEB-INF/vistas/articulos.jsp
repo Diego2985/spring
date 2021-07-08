@@ -25,9 +25,10 @@
                 <h4 class="text-center" id="precio"><span>$1500.00</span></h4><br>
                 <div class="container text-center">
                 <button class="btn" style="background-color: #a4ebf3">Agregar al carrito</button>
-                <button href="${ pageContext.request.contextPath}/detalleArticulo" class="btn mt-5" style="background-color: #a4ebf3">Comprar</button>
-             <!--<a href="${pageContext.request.contextPath}/reservar-turno" class="btn btn-lg btn-primary mt-4">Reservar Turno</a>-->
-                </div>
+                    <br>
+                    <br>
+                <a href="${ pageContext.request.contextPath}/detalleArticulo" class="btn" style="background-color: #a4ebf3" role="button">Comprar</a>
+                 </div>
             </div>
         </div>
     </div>
@@ -44,7 +45,9 @@
                 <h4 class="text-center" id="precio"><span>$1200.00</span></h4><br>
                 <div class="container text-center">
                 <button class="btn" style="background-color: #a4ebf3">Agregar al carrito</button>
-                <button class="btn" style="background-color: #a4ebf3" href="${ pageContext.request.contextPath}/detalleArticulo">Comprar</button>
+                    <br>
+                    <br>
+                <a class="btn" style="background-color: #a4ebf3" href="${ pageContext.request.contextPath}/detalleArticulo" role="button">Comprar</a>
             </div>
             </div>
         </div>
@@ -62,8 +65,10 @@
                 <h4 class="text-center" id="precio"><span>$2400.00</span></h4><br>
                 <div class="container text-center">
                     <button class="btn " style="background-color: #a4ebf3">Agregar al carrito</button>
-                   <!-- <button class="btn " style="background-color: #a4ebf3" ${ pageContext.request.contextPath}/detalleArticulo">Comprar</button>-->
-                    <a class="btn-mdb-color" href="${ pageContext.request.contextPath}/detalleArticulo" role="button">Comprar</a>
+                    <br>
+                    <br>
+                    <a class="btn" style="background-color: #a4ebf3" href="${ pageContext.request.contextPath}/detalleArticulo" role="button" >Comprar</a>
+                    <!--mdb-color-->
                 </div>
             </div>
         </div>
@@ -81,7 +86,9 @@
                 <h4 class="text-center" id="precio"><span>$3000.00</span></h4><br>
                 <div class="container text-center">
                     <button class="btn" style="background-color: #a4ebf3">Agregar al carrito</button>
-                    <button class="btn" style="background-color: #a4ebf3" ${ pageContext.request.contextPath}/detalleArticulo">Comprar</button>
+                    <br>
+                    <br>
+                    <a class="btn" style="background-color: #a4ebf3" href="${ pageContext.request.contextPath}/detalleArticulo" role="button">Comprar</a>
                 </div>
             </div>
         </div>
